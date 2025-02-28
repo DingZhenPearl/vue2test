@@ -21,8 +21,8 @@
       <!-- 主内容区域 -->
       <div class="main-content">
         <!-- 根据选中页面显示不同组件 -->
-        <replication v-if="currentPage === 'home'" msg="欢迎使用 Vue.js"/>
-        <AboutPage v-if="currentPage === 'about'"/>
+        <replication v-if="currentPage === 'replication'"/>
+        <exploration1 v-if="currentPage === 'exploration1'"/>
         <SettingsPage v-if="currentPage === 'settings'"/>
       </div>
     </div>
@@ -31,22 +31,22 @@
 
 <script>
 import replication from './components/replication.vue'
-import AboutPage from './components/AboutPage.vue'
+import exploration1 from './components/exploration1.vue'
 import SettingsPage from './components/SettingsPage.vue'
 
 export default {
   name: 'App',
   components: {
     replication,
-    AboutPage,
+    exploration1,
     SettingsPage
   },
   data() {
     return {
-      currentPage: 'home',
+      currentPage: 'replication',
       navItems: [
-        { id: 'home', name: '复现' },
-        { id: 'about', name: '关于' },
+        { id: 'replication', name: '复现' },
+        { id: 'exploration1', name: '探索1' },
         { id: 'settings', name: '设置' }
       ]
     }
