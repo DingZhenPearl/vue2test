@@ -21,7 +21,7 @@
       <!-- 主内容区域 -->
       <div class="main-content">
         <!-- 根据选中页面显示不同组件 -->
-        <HelloWorld v-if="currentPage === 'home'" msg="欢迎使用 Vue.js"/>
+        <replication v-if="currentPage === 'home'" msg="欢迎使用 Vue.js"/>
         <AboutPage v-if="currentPage === 'about'"/>
         <SettingsPage v-if="currentPage === 'settings'"/>
       </div>
@@ -30,14 +30,14 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import replication from './components/replication.vue'
 import AboutPage from './components/AboutPage.vue'
 import SettingsPage from './components/SettingsPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    replication,
     AboutPage,
     SettingsPage
   },
@@ -45,7 +45,7 @@ export default {
     return {
       currentPage: 'home',
       navItems: [
-        { id: 'home', name: '首页' },
+        { id: 'home', name: '复现' },
         { id: 'about', name: '关于' },
         { id: 'settings', name: '设置' }
       ]
