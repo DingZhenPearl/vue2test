@@ -67,10 +67,6 @@
           <pre>hobbies:{{ formData.hobbies }}</pre>
           <pre>city:{{ formData.city }}</pre>
           <pre>description:{{ formData.description }}</pre>
-
-
-
-
         </div>
       </div>
     </section>
@@ -96,8 +92,6 @@
           </li>
         </ul>
       </div>
-      
-
     </section>
     
     <!-- 表格部分 -->
@@ -191,119 +185,5 @@ export default {
 </script>
 
 <style scoped>
-.home-page {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #2c3e50;
-}
-
-.section {
-  margin-bottom: 40px;
-}
-
-h2 {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  color: #2c3e50;
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-h3 {
-  margin-bottom: 15px;
-  color: #3a8ee6;
-}
-
-.form-item {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.radio-label, .checkbox-label {
-  display: inline-block;
-  font-weight: normal;
-  margin-right: 10px;
-}
-
-input[type="text"],
-input[type="password"],
-select,
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #dcdfe6;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #3a8ee6;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-button:hover {
-  background-color: #66b1ff;
-}
-
-.form-preview {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f5f7fa;
-  border-radius: 4px;
-}
-
-pre {
-  white-space: pre-wrap;
-}
-
-ul, ol {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 5px;
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.data-table th, .data-table td {
-  border: 1px solid #ebeef5;
-  padding: 12px;
-  text-align: left;
-}
-
-.data-table th {
-  background-color: #f5f7fa;
-  color: #606266;
-}
-
-.data-table tr:hover {
-  background-color: #f5f7fa;
-}
+/* 所有样式已清除 */
 </style>
