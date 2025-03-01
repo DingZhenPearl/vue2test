@@ -24,6 +24,9 @@
         <div v-if="currentPage === 'replication'">
           <replication />
           <div class="components-container">
+            <HelloWord />
+
+
             <h2>基础组件演示</h2>
             <div class="component-section">
               <h3>基础表单</h3>
@@ -69,6 +72,7 @@ import BasicTable from './components/basicTable.vue'
 import FormTemplateTest from './components/formTemplateTest.vue'
 import TableTemplateTest from './components/tableTemplateTest.vue'
 import ListTemplateTest from './components/listTemplateTest.vue'
+import HelloWord from './components/helloWord.vue'
 
 export default {
   name: 'App',
@@ -81,7 +85,8 @@ export default {
     BasicTable,
     FormTemplateTest,
     TableTemplateTest,
-    ListTemplateTest
+    ListTemplateTest,
+    HelloWord
   },
   data() {
     return {
