@@ -56,7 +56,7 @@
         </div>
 
         <exploration1 v-if="currentPage === 'exploration1'"/>
-        <SettingsPage v-if="currentPage === 'settings'"/>
+        <exploration2 v-if="currentPage === 'exploration2'"/>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
 <script>
 import replication from './components/replication.vue'
 import exploration1 from './components/exploration1.vue'
-import SettingsPage from './components/SettingsPage.vue'
+import exploration2 from './components/exploration2.vue'
 import BasicForm from './components/basicForm.vue'
 import BasicList from './components/basicList.vue'
 import BasicTable from './components/basicTable.vue'
@@ -79,7 +79,7 @@ export default {
   components: {
     replication,
     exploration1,
-    SettingsPage,
+    exploration2,
     BasicForm,
     BasicList,
     BasicTable,
@@ -94,7 +94,7 @@ export default {
       navItems: [
         { id: 'replication', name: '复现' },
         { id: 'exploration1', name: '探索1' },
-        { id: 'settings', name: '设置' }
+        { id: 'exploration2', name: '探索2' }
       ]
     }
   },
