@@ -90,8 +90,8 @@
         </el-form-item>
       </el-form>
       <div slot="footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="handleSubmit">确 定</el-button>
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="handleSubmit">确定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -227,6 +227,8 @@ export default {
           lastMaintain: new Date().toLocaleString()
         };
         const result = equipmentService.updateEquipment(updatedEquipment);
+        console.log(result);
+        console.log(row);
         if (result) {
           this.loadEquipments();
           this.$message.success(`${action}操作成功`);
