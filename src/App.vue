@@ -56,7 +56,9 @@
         </div>
 
         <exploration1 v-if="currentPage === 'exploration1'"/>
-        <exploration2 v-if="currentPage === 'exploration2'"/>
+        <TDesign v-if="currentPage === 'exploration2'"/>
+        <AntDesign v-if="currentPage === 'exploration2'"/>
+
         <industry-test v-if="currentPage === 'industry'"/>
       </div>
     </div>
@@ -66,7 +68,7 @@
 <script>
 import replication from './components/replication.vue'
 import exploration1 from './components/exploration1.vue'
-import exploration2 from './components/exploration2.vue'
+import TDesign from './components/TDesign.vue'
 import industryTest from './components/industryTest.vue'
 import BasicForm from './components/basicForm.vue'
 import BasicList from './components/basicList.vue'
@@ -75,13 +77,13 @@ import FormTemplateTest from './components/formTemplateTest.vue'
 import TableTemplateTest from './components/tableTemplateTest.vue'
 import ListTemplateTest from './components/listTemplateTest.vue'
 import HelloWord from './components/helloWord.vue'
-
+import AntDesign from './components/antDesign.vue'
 export default {
   name: 'App',
   components: {
     replication,
     exploration1,
-    exploration2,
+    TDesign,
     industryTest,
     BasicForm,
     BasicList,
@@ -89,7 +91,8 @@ export default {
     FormTemplateTest,
     TableTemplateTest,
     ListTemplateTest,
-    HelloWord
+    HelloWord,
+    AntDesign
   },
   data() {
     return {
