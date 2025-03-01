@@ -57,6 +57,7 @@
 
         <exploration1 v-if="currentPage === 'exploration1'"/>
         <exploration2 v-if="currentPage === 'exploration2'"/>
+        <industry-test v-if="currentPage === 'industry'"/>
       </div>
     </div>
   </div>
@@ -66,6 +67,7 @@
 import replication from './components/replication.vue'
 import exploration1 from './components/exploration1.vue'
 import exploration2 from './components/exploration2.vue'
+import industryTest from './components/industryTest.vue'
 import BasicForm from './components/basicForm.vue'
 import BasicList from './components/basicList.vue'
 import BasicTable from './components/basicTable.vue'
@@ -80,6 +82,7 @@ export default {
     replication,
     exploration1,
     exploration2,
+    industryTest,
     BasicForm,
     BasicList,
     BasicTable,
@@ -94,7 +97,8 @@ export default {
       navItems: [
         { id: 'replication', name: '复现' },
         { id: 'exploration1', name: '探索1' },
-        { id: 'exploration2', name: '探索2' }
+        { id: 'exploration2', name: '探索2' },
+        { id: 'industry', name: '工业测试' }  // 新增导航项
       ]
     }
   },
