@@ -1,4 +1,4 @@
-// 简单的服务模拟后端数据
+// 服务模拟后端数据
 export default {
   get equipments() {
     // 从 localStorage 获取数据，如果没有则使用默认值

@@ -59,6 +59,35 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <!-- 新增/编辑设备对话框 -->
+    <el-dialog
+      :title="dialogType === 'add' ? '新增设备' : '编辑设备'"
+      :visible.sync="dialogVisible"
+      width="500px">
+      <el-form :model="equipmentForm" ref="equipmentForm" :rules="rules" label-width="100px">
+        <el-form-item label="设备ID" prop="id">
+          <el-input v-model="equipmentForm.id" :disabled="dialogType === 'edit'"></el-input>
+        </el-form-item>
+        <el-form-item label="设备名称" prop="name">
+          <el-input v-model="equipmentForm.name"></el-input>
+        </el-form-item>
+        <el-form-item label="设备状态" prop="status">
+          <el-select v-model="equipmentForm.status">
+            <el-option
+              v-for="item in statusOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <div slot="footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="handleSubmit">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -85,7 +114,28 @@ export default {
         {value: 1, label: '运行中'},
         {value: 2, label: '待机'},
         {value: 3, label: '故障'}
-      ]
+      ],
+      dialogVisible: false,
+      dialogType: 'add', // 'add' 或 'edit'
+      equipmentForm: {
+        id: '',
+        name: '',
+        status: 1,
+        lastMaintain: new Date().toLocaleString()
+      },
+      rules: {
+        id: [
+          { required: true, message: '请输入设备ID', trigger: 'blur' },
+          { min: 3, max: 20, message: 'ID长度在3到20个字符', trigger: 'blur' }
+        ],
+        name: [
+          { required: true, message: '请输入设备名称', trigger: 'blur' },
+          { min: 2, max: 50, message: '名称长度在2到50个字符', trigger: 'blur' }
+        ],
+        status: [
+          { required: true, message: '请选择设备状态', trigger: 'change' }
+        ]
+      }
     }
   },
 
@@ -116,13 +166,35 @@ export default {
 
   methods: {
     goToAddEquipment() {
-      // 直接路由到添加页面
-      this.$router.push('/equipment/add')
+      this.dialogType = 'add'
+      this.equipmentForm = {
+        id: '',
+        name: '',
+        status: 1,
+        lastMaintain: new Date().toLocaleString()
+      }
+      this.dialogVisible = true
     },
 
     goToEditEquipment(row) {
-      // 将要编辑的设备ID作为路由参数
-      this.$router.push(`/equipment/edit/${row.id}`)
+      this.dialogType = 'edit'
+      this.equipmentForm = {...row}
+      this.dialogVisible = true
+    },
+
+    handleSubmit() {
+      this.$refs.equipmentForm.validate(valid => {
+        if (valid) {
+          if (this.dialogType === 'add') {
+            equipmentService.addEquipment(this.equipmentForm)
+          } else {
+            equipmentService.updateEquipment(this.equipmentForm)
+          }
+          this.loadEquipments()
+          this.dialogVisible = false
+          this.$message.success(this.dialogType === 'add' ? '添加成功' : '更新成功')
+        }
+      })
     },
 
     handleDelete(row) {
