@@ -52,8 +52,14 @@
         </template>
       </el-table-column>
       <el-table-column prop="lastMaintain" label="最后维护时间"></el-table-column>
-      <el-table-column label="操作" width="180">
+      <el-table-column label="操作" width="280">
         <template #default="{row}">
+          <el-button 
+            size="mini" 
+            :type="row.status === 1 ? 'warning' : 'success'"
+            @click="handlePowerControl(row)">
+            {{ row.status === 1 ? '停机' : '开机' }}
+          </el-button>
           <el-button size="mini" @click="goToEditEquipment(row)">编辑</el-button>
           <el-button size="mini" type="danger" @click="handleDelete(row)">删除</el-button>
         </template>
@@ -207,6 +213,25 @@ export default {
       }).catch(() => {
         this.$message.info('已取消删除')
       })
+    },
+
+    handlePowerControl(row) {
+      const action = row.status === 1 ? '停机' : '开机';
+      this.$confirm(`确认要对设备 ${row.name} 执行${action}操作吗？`, '提示', {
+        type: 'warning'
+      }).then(() => {
+        const newStatus = row.status === 1 ? 2 : 1;  // 1:运行中, 2:待机
+        const updatedEquipment = {
+          ...row,
+          status: newStatus,
+          lastMaintain: new Date().toLocaleString()
+        };
+        equipmentService.updateEquipment(updatedEquipment);
+        this.loadEquipments();
+        this.$message.success(`${action}操作成功`);
+      }).catch(() => {
+        this.$message.info('已取消操作');
+      });
     },
 
     loadEquipments() {
