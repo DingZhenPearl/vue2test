@@ -21,7 +21,37 @@
       <!-- 主内容区域 -->
       <div class="main-content">
         <!-- 根据选中页面显示不同组件 -->
-        <replication v-if="currentPage === 'replication'"/>
+        <div v-if="currentPage === 'replication'">
+          <replication />
+          <div class="components-container">
+            <h2>基础组件演示</h2>
+            <div class="component-section">
+              <h3>基础表单</h3>
+              <BasicForm />
+            </div>
+            <div class="component-section">
+              <h3>基础列表</h3>
+              <BasicList />
+            </div>
+            <div class="component-section">
+              <h3>基础表格</h3>
+              <BasicTable />
+            </div>
+            <div class="component-section">
+              <h3>表单模板测试</h3>
+              <FormTemplateTest />
+            </div>
+            <div class="component-section">
+              <h3>表格模板测试</h3>
+              <TableTemplateTest />
+            </div>
+            <div class="component-section">
+              <h3>列表模板测试</h3>
+              <ListTemplateTest />
+            </div>
+          </div>
+        </div>
+
         <exploration1 v-if="currentPage === 'exploration1'"/>
         <SettingsPage v-if="currentPage === 'settings'"/>
       </div>
@@ -33,13 +63,25 @@
 import replication from './components/replication.vue'
 import exploration1 from './components/exploration1.vue'
 import SettingsPage from './components/SettingsPage.vue'
+import BasicForm from './components/basicForm.vue'
+import BasicList from './components/basicList.vue'
+import BasicTable from './components/basicTable.vue'
+import FormTemplateTest from './components/formTemplateTest.vue'
+import TableTemplateTest from './components/tableTemplateTest.vue'
+import ListTemplateTest from './components/listTemplateTest.vue'
 
 export default {
   name: 'App',
   components: {
     replication,
     exploration1,
-    SettingsPage
+    SettingsPage,
+    BasicForm,
+    BasicList,
+    BasicTable,
+    FormTemplateTest,
+    TableTemplateTest,
+    ListTemplateTest
   },
   data() {
     return {
@@ -122,5 +164,24 @@ export default {
   flex: 1;
   padding: 25px;
   overflow-y: auto;
+}
+
+.components-container {
+  margin-top: 20px;
+}
+
+.component-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1);
+}
+
+.component-section h3 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebeef5;
+  color: #42b983;
 }
 </style>

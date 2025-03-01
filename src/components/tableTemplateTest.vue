@@ -95,6 +95,7 @@ export default {
           // }
 
           let tempArr = []
+          // eslint-disable-next-line no-unused-vars
           let length = result.data.length
           for(let i = 0; i< 3; i++){
             tempArr.push({
