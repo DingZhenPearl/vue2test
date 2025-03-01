@@ -35,12 +35,14 @@ export default {
   },
 
   updateEquipment(equipment) {
-    const index = this.equipments.findIndex(e => e.id === equipment.id);
+    const equipments = this.equipments
+    const index = equipments.findIndex(e => e.id === equipment.id)
     if (index !== -1) {
-      this.equipments[index] = { ...equipment };
-      // 如果使用localStorage存储数据
-      localStorage.setItem('equipments', JSON.stringify(this.equipments));
+      equipments[index] = { ...equipment }
+      this.saveData(equipments)
+      return true
     }
+    return false
   },
 
   deleteEquipment(id) {

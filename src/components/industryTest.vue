@@ -226,9 +226,13 @@ export default {
           status: newStatus,
           lastMaintain: new Date().toLocaleString()
         };
-        equipmentService.updateEquipment(updatedEquipment);
-        this.loadEquipments();
-        this.$message.success(`${action}操作成功`);
+        const result = equipmentService.updateEquipment(updatedEquipment);
+        if (result) {
+          this.loadEquipments();
+          this.$message.success(`${action}操作成功`);
+        } else {
+          this.$message.error(`${action}操作失败`);
+        }
       }).catch(() => {
         this.$message.info('已取消操作');
       });
