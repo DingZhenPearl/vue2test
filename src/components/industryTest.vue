@@ -255,23 +255,23 @@ export default {
 <style scoped>
 .equipment-management {
   padding: 20px;
-  .filter-area {
-    margin-bottom: 20px;
-  }
-  .status-board {
-    margin-bottom: 20px;
-    .status-card {
-      text-align: center;
-      .count {
-        font-size: 24px;
-        margin: 10px 0;
-      }
-    }
-  }
-  .status-tag {
-    font-weight: bold;
-    padding: 0 10px;
-    border-radius: 12px;
-  }
+}
+.equipment-management .filter-area {
+  margin-bottom: 20px;
+}
+.equipment-management .status-board {
+  margin-bottom: 20px;
+}
+.equipment-management .status-board .status-card {
+  text-align: center;
+}
+.equipment-management .status-board .status-card .count {
+  font-size: 24px;
+  margin: 10px 0;
+}
+.equipment-management .status-tag {
+  font-weight: bold;
+  padding: 0 10px;
+  border-radius: 12px;
 }
 </style>
